@@ -1,5 +1,5 @@
 {
-  "name": "angular-first-project",
+  "name": "AngularFirstProject",
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
@@ -16,7 +16,7 @@
     "@angular/common": "^4.2.4",
     "@angular/compiler": "^4.2.4",
     "@angular/core": "^4.2.4",
-    "@angular/forms": "^4.2.4",
+    "@angular/forms": "^4.4.6",
     "@angular/http": "^4.2.4",
     "@angular/platform-browser": "^4.2.4",
     "@angular/platform-browser-dynamic": "^4.2.4",
