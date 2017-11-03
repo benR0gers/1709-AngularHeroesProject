@@ -1,17 +1,23 @@
 <h1>{{title}}</h1>
 <h2>My Heroes</h2>
-<ul class="heroes">
-  <!-- Structural Directive *ngFor and *ngIf-->
-  <li *ngFor="let hero of heroes"
-  [class.selected]="hero === selectedHero" (click)="onSelect(hero)">
-    <span class="badge">{{hero.id}} </span>{{hero.name}}
-  </li>
-</ul>
-<div *ngIf="selectedHero">
-  <h2>{{selectedHero.name}} details!</h2>
-  <div><label>id: </label>{{selectedHero.id}}</div>
-  <div>
-    <label>name: </label>
-    <input [(ngModel)]="selectedHero.name" placeholder="name">
-  </div>
+<nav>
+  <a routerLink="/dashboard">Dashboard</a>
+  <a routerLink="/heroes">Heroes</a>
+</nav>
+<router-outlet></router-outlet>
+<!-- hero details was a part of the AppComponent but we turned it into its own component and now reference it through the <hero-detail directive>
+  hero is a property in hero-detail.component.ts
+selectedHero is a property in  -->
+
+
+<hero-detail [hero]="selectedHero"></hero-detail>
+
+
+<div>
+  <ul class="heroes">
+    <!-- Structural Directive *ngFor and *ngIf-->
+    <li *ngFor="let hero of heroes" [class.selected]="hero === selectedHero" (click)="onSelect(hero)">
+      <span class="badge">{{hero.id}} </span>{{hero.name}}
+    </li>
+  </ul>
 </div>
