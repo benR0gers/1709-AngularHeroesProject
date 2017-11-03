@@ -1,22 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { Hero } from './hero';
 import { HeroService } from './hero.service';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'my-heroes',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'my-heroes', 
+  templateUrl: './heroes.component.html', 
+  styleUrls: ['./heroes.component.css']
 })
 
-/* Don't use the new keyword for services, it will create a new one each time
-    What if the service caches heroes and shares that cache with others? you couldn't do that.
-    By using DI the Service will be a singleton. 
-    Angular component lifeccle: at creation, after each change, and at its eventual destruction
-*/
 export class HeroesComponent implements OnInit {
-  constructor(private heroService: HeroService) { }
+  constructor(private heroService: HeroService, private router: Router) { }
 
-  title = 'Heroes App';
   heroes: Hero[];
   selectedHero: Hero;
 
@@ -30,6 +25,9 @@ export class HeroesComponent implements OnInit {
 
   onSelect(hero: Hero): void {
     this.selectedHero = hero;
+  }
+  gotoDetail(): void {
+    this.router.navigate(['/detail', this.selectedHero.id]);
   }
 }
 

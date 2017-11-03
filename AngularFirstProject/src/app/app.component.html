@@ -1,17 +1,13 @@
-<h1>{{title}}</h1>
-<h2>My Heroes</h2>
-<nav>
-  <a routerLink="/dashboard">Dashboard</a>
-  <a routerLink="/heroes">Heroes</a>
-</nav>
-<router-outlet></router-outlet>
 <!-- hero details was a part of the AppComponent but we turned it into its own component and now reference it through the <hero-detail directive>
   hero is a property in hero-detail.component.ts
 selectedHero is a property in  -->
 
-
-<hero-detail [hero]="selectedHero"></hero-detail>
-
+<div *ngIf="selectedHero">
+    <h2>
+      {{selectedHero.name | uppercase}} is my hero
+    </h2>
+    <button (click)="gotoDetail()">View Details</button>
+  </div>
 
 <div>
   <ul class="heroes">
